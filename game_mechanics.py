@@ -93,7 +93,21 @@ def print_map():
         print(" |")
 
 
-
+def reveal_spread(x,y,counter):
+    if x < 0 or x >= x_width:
+        return
+    if y < 0 or y >= y_height:
+        return
+    counter -= 1
+    if counter <= 0:
+        return
+    if reveal_array[x][y] == False:
+        if full_array[x][y] == False:
+            reveal_array[x][y] = True
+            reveal_spread(x-1,y, counter)
+            reveal_spread(x+1,y, counter)
+            reveal_spread(x,y-1, counter)
+            reveal_spread(x,y+1, counter)
 
 def main():
 
@@ -123,8 +137,9 @@ def game_loop():
             print("player lost")
             exit()
         else:
-            reveal_array[x_move][y_move] = True
+            #reveal_array[x_move][y_move] = True
             print("good choice")
+            reveal_spread(x_move,y_move,4)
 
 
     
