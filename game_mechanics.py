@@ -160,4 +160,3 @@ def game_loop():
 
     
 
-main()
