@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>Dynamic Grid</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 50px);
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .grid-item:hover {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Grid</h1>
+    <div id="icon-grid" class="grid"></div>
+    <script src="{{ url_for('static', filename='grid.js') }}"></script>
+</body>
+</html>
